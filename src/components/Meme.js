@@ -2,26 +2,26 @@ import React from "react";
 import memesData from "../memesData";
 
 function Meme() {
-// const [memeImage, setMemeImage] = React.useState("");
+  // const [memeImage, setMemeImage] = React.useState("");
 
-const [meme, setMeme] = React.useState({
-  topText: "",
-  bottomTxt: "",
-  randomImage: "http://i.imgflip.com/1bij.jpg"
-})
+  const [meme, setMeme] = React.useState({
+    topText: "",
+    bottomTxt: "",
+    randomImage: "http://i.imgflip.com/1bij.jpg",
+  });
 
-const[allMemeImages, setallMemeImages] = React.useState(memesData)
+  const [allMemeImages] = React.useState(memesData);
 
   function getMemeImage() {
     let memesArray = allMemeImages.data.memes;
     let randomNumber = Math.floor(Math.random() * memesArray.length);
-   let url = memesArray[randomNumber].url;
-    setMeme(prevMeme =>{
-      return{
+    let url = memesArray[randomNumber].url;
+    setMeme((prevMeme) => {
+      return {
         ...prevMeme,
-        randomImage: url
-      }
-    })
+        randomImage: url,
+      };
+    });
   }
 
   return (
@@ -41,9 +41,11 @@ const[allMemeImages, setallMemeImages] = React.useState(memesData)
           Get a new meme image 🖼
         </button>
       </div>
-
+      <div className="meme">
         <img src={meme.randomImage} alt="meme-img" className="meme-image"></img>
-
+        <h2 className="meme--text top">One does not simply</h2>
+        <h2 className="meme--text bottom">Walk into Mordor</h2>
+      </div>
     </main>
   );
 }
