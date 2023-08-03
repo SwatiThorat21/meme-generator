@@ -34,7 +34,7 @@ function Meme() {
   }
 
   return (
-    <main>
+    <main className="main_section">
       <div className="form">
         <input
           type="text"
